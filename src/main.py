@@ -1,4 +1,4 @@
-# mi_juego/main.py
+# src/main.py
 from .ui import JuegoApp
 
 def main():

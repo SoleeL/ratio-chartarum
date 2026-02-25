@@ -53,7 +53,7 @@ pytest>=7.0 → Tests automáticos
 Con el entorno virtual activado, ejecuta:
 
 ```bash
-mi-juego
+ratio-chartarum
 ```
 
 Esto llamará a la función main definida en mi_juego/main.py.
@@ -63,7 +63,7 @@ Esto llamará a la función main definida en mi_juego/main.py.
 ### 5.1 Comprobar tipos
 
 ```bash
-mypy mi_juego/
+mypy src/
 ```
 ### 5.2 Ejecutar tests
 
