@@ -11,7 +11,7 @@ requires-python = ">=3.10.12,<4.0"
 dependencies = ["textual>=0.27"]
 
 [project.scripts]
-ratio-chartarum = "ratio_chartarum.main:main"
+ratio-chartarum = "main:main"
 
 [project.optional-dependencies]
 dev = [

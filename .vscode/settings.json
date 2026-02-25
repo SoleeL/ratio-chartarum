@@ -1,8 +1,13 @@
 {
-    "python.linting.enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.mypyArgs": [
+    "python.defaultInterpreterPath": "", // Usa automáticamente el intérprete activo (venv o sistema)
+    "python.envFile": "${workspaceFolder}/.env", // Archivo .env opcional para activar automáticamente el venv al abrir VS Code
+    "python.analysis.autoSearchPaths": true, // Pylance busca automáticamente los paths de librerías del intérprete activo
+    "python.analysis.useLibraryCodeForTypes": true, // Usa tipos de librerías externas para autocompletado y verificación
+    
+    "python.linting.enabled": true, // Activa el linting general de Python
+    "python.linting.mypyEnabled": true, // Activa mypy para verificación de tipos estática
+    "python.linting.mypyArgs": [ // Argumentos de mypy: aquí especificamos el archivo de configuración
         "--config-file",
         "${workspaceFolder}/mypy.ini"
-    ]
+    ],
 }
