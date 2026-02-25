@@ -1,13 +1,25 @@
 {
-    "python.defaultInterpreterPath": "", // Usa automáticamente el intérprete activo (venv o sistema)
-    "python.envFile": "${workspaceFolder}/.env", // Archivo .env opcional para activar automáticamente el venv al abrir VS Code
+    "python.envFile": "${workspaceFolder}/.env", // Archivo .env opcional para activar automáticamente el venv al abrir VS Code    
+    "python.defaultInterpreterPath": "", // Usa automáticamente el intérprete
+
     "python.analysis.autoSearchPaths": true, // Pylance busca automáticamente los paths de librerías del intérprete activo
     "python.analysis.useLibraryCodeForTypes": true, // Usa tipos de librerías externas para autocompletado y verificación
     
-    "python.linting.enabled": true, // Activa el linting general de Python
-    "python.linting.mypyEnabled": true, // Activa mypy para verificación de tipos estática
-    "python.linting.mypyArgs": [ // Argumentos de mypy: aquí especificamos el archivo de configuración
-        "--config-file",
-        "${workspaceFolder}/mypy.ini"
+    "python.terminal.activateEnvironment": false, // [OPTIONAL] Activa la terminal apenas se abre el proyecto 
+
+    "mypy-type-checker.ignorePatterns": [
+        ".direnv/*",
+        "docs/*",
+        "*generated/*",
+        "*<common-submodule-name>/*",
+        "*cache*",
+        "dist*"
     ],
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "mypy-type-checker.reportingScope": "workspace",
+    "mypy-type-checker.preferDaemon": false,
+    "mypy-type-checker.showNotifications": "onError",
+    "mypy-type-checker.args": [
+        "--config-file=${workspaceFolder}/mypy.ini"
+    ]
 }

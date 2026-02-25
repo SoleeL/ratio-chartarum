@@ -1,93 +1,136 @@
 # Ratio Chartarum: Terminal Card Game
 
-Este documento explica cómo configurar el entorno de desarrollo, instalar dependencias y trabajar en el proyecto.
+Juego de cartas en terminal construido con textual.
 
----
+## 📦 Requisitos
 
-## 1. Requisitos
+- Python 3.10.12+
+- pip actualizado
+- Linux / macOS / Windows
 
-- **Python 3.10.12+**
-- **pip** actualizado
-- **virtualenv** opcional pero recomendado
-- Sistema Linux / MacOS / Windows
+## 👨‍💻 Desarrollo (recomendado)
 
----
+Estas instrucciones son para trabajar activamente en el proyecto.
 
-## 2. Crear y activar el entorno virtual
+### 1️⃣ Crear entorno virtual (opcional pero recomendado)
+
+#### Linux / Mac
 
 ```bash
-# Linux / Mac
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-# Windows (PowerShell)
+#### Windows (PowerShell)
+
+```bash
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-## 3. Instalar dependencias
-
-Instala las dependencias principales para ejecutar el juego:
+### 2️⃣ Instalar en modo editable
 
 ```bash
 pip install --upgrade pip
-pip install .
+pip install -e .[dev]
 ```
 
-Para instalar dependencias de desarrollo (linting, tests, tipado estático):
+Esto:
 
-```bash
-pip install .[dev]
-```
+1. Instala el paquete en modo editable
+2. Instala dependencias de desarrollo (mypy, pytest, etc.)
+3. Hace que ratio-chartarum use tu código actual (sin reinstalar)
 
-Esto instalará:
+### 3️⃣ Ejecutar en desarrollo
 
-textual>=0.27 → Biblioteca para interfaces en terminal
-
-mypy>=1.5 → Comprobación de tipos
-
-pytest>=7.0 → Tests automáticos
-
-## 4. Ejecutar el juego
-
-Con el entorno virtual activado, ejecuta:
+Usando el entrypoint instalado:
 
 ```bash
 ratio-chartarum
 ```
 
-Esto llamará a la función main definida en mi_juego/main.py.
+- Usa el script generado por el paquete instalado
+- Requiere haber ejecutado ```pip install -e .```
+- Es la forma más limpia y similar a producción
+- El modo ```-e``` hace que use tu código actual sin reinstalar
 
-## 5. Desarrollo y testing
+Alternativa sin instalar:
 
-### 5.1 Comprobar tipos
+```bash
+python -m src.main
+```
+
+- No requiere instalar el paquete
+- Ejecuta el archivo directamente desde el directorio del proyecto
+- Útil para pruebas rápidas
+- No valida que el packaging (entrypoints, configuración del build) esté correcto
+
+## 🧪 Herramientas de desarrollo
+
+✔ Comprobación de linter
 
 ```bash
 mypy src/
 ```
-### 5.2 Ejecutar tests
+
+✔ Ejecutar tests
 
 ```bash
 pytest
 ```
-### 5.3 Construir paquete
 
-Si quieres generar un paquete instalable:
+## 🧩 Extensiones recomendadas para VS Code
+
+Para una experiencia de desarrollo completa (errores en vivo, autocompletado y análisis estático), se recomienda instalar:
+
+- Python — Microsoft
+  - ID: ms-python.python
+
+- Pylance — Microsoft
+  - ID: ms-python.vscode-pylance
+
+- Mypy Type Checker — Microsoft
+  - ID: ms-python.mypy-type-checker
+
+Estas extensiones permiten:
+
+- Detección de errores en tiempo real
+- Integración automática con el entorno virtual (.venv)
+- Análisis de tipos usando la configuración definida en mypy.ini
+
+## 📦 Instalación para uso normal
+
+Si solo quieres instalar y ejecutar el juego:
+
+```bash
+pip install .
+ratio-chartarum
+```
+
+⚠️ Nota: Si modificas el código después, deberás reinstalar.
+
+## 🏗 Construir paquete
 
 ```bash
 python -m build
 ```
 
-Esto creará un directorio dist/ con los archivos .tar.gz y .whl.
+Generará archivos en dist/:
 
-### 6. Estructura del proyecto
+- ```.tar.gz```
+- ```.whl```
 
-```
+## 📁 Estructura del proyecto
+
+```bash
 ratio-chartarum/
 │
-├─ mi_juego/
-│   └─ main.py          # Punto de entrada del juego
-├─ pyproject.toml       # Configuración de build y dependencias
-├─ README.md
-└─ tests/               # Tests unitarios
+├─ src/
+│   ├─ main.py
+│   ├─ ui.py
+│   └─ __init__.py
+│
+├─ tests/
+├─ pyproject.toml
+└─ README.md
 ```
