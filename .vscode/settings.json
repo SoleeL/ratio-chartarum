@@ -1,11 +1,12 @@
 {
-    "python.envFile": "${workspaceFolder}/.env", // Archivo .env opcional para activar automáticamente el venv al abrir VS Code    
-    "python.defaultInterpreterPath": "", // Usa automáticamente el intérprete
+    // "python.envFile": "${workspaceFolder}/.env", // Archivo .env opcional para activar automáticamente el venv al abrir VS Code    
+    
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python", // Usa automáticamente el intérprete del venv
 
     "python.analysis.autoSearchPaths": true, // Pylance busca automáticamente los paths de librerías del intérprete activo
     "python.analysis.useLibraryCodeForTypes": true, // Usa tipos de librerías externas para autocompletado y verificación
     
-    "python.terminal.activateEnvironment": false, // [OPTIONAL] Activa la terminal apenas se abre el proyecto 
+    "python.terminal.activateEnvironment": true, // [OPTIONAL] Activa la terminal apenas se abre el proyecto 
 
     "mypy-type-checker.ignorePatterns": [
         ".direnv/*",
