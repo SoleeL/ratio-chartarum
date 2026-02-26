@@ -10,6 +10,7 @@
     "mypy-type-checker.ignorePatterns": [
         ".direnv/*",
         "docs/*",
+        "build/",
         "*generated/*",
         "*<common-submodule-name>/*",
         "*cache*",
