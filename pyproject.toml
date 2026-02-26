@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ratio-chartarum"
 version = "0.1.0"
 description = "Juego de cartas en el terminal"
-authors = [{name="Carlos Núñez"}]
+authors = [{ name = "Carlos Núñez" }]
 requires-python = ">=3.10.12,<4.0"
 dependencies = ["textual>=0.27"]
 
@@ -14,7 +14,4 @@ dependencies = ["textual>=0.27"]
 ratio-chartarum = "main:main"
 
 [project.optional-dependencies]
-dev = [
-    "mypy>=1.5",
-    "pytest>= 7.0"
-]
+dev = ["ruff>=0.3", "mypy>=1.5", "pytest>= 7.0"]
