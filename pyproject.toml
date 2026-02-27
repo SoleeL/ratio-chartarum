@@ -1,17 +1,21 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "ratio-chartarum"
 version = "0.1.0"
 description = "Juego de cartas en el terminal"
 authors = [{ name = "Carlos Núñez" }]
+readme = "README.md"
 requires-python = ">=3.10.12,<4.0"
 dependencies = ["textual>=0.27"]
 
 [project.scripts]
-ratio-chartarum = "main:main"
+ratio-chartarum = "ratio_chartarum.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ratio_chartarum"]
 
 [project.optional-dependencies]
 dev = ["ruff>=0.3", "mypy>=1.5", "pytest>= 7.0"]

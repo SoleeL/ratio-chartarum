@@ -1,0 +1,36 @@
+/* ============================= */
+/* Title */
+/* ============================= */
+
+#title {
+    content-align: center middle;
+    height: 3;
+    text-style: bold;
+}
+
+
+/* ============================= */
+/* Main menu */
+/* ============================= */
+
+#main-menu {
+    align: center middle;
+    width: 60%;
+}
+
+#main-menu Button {
+    width: 30;
+    margin: 1 0;
+}
+
+
+/* ============================= */
+/* Secondary menu */
+/* ============================= */
+
+#secondary-menu {
+    dock: right;
+    width: 30;
+    padding: 1;
+    border: round $accent;
+}
