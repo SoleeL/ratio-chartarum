@@ -4,10 +4,10 @@ from textual.screen import Screen
 from textual.widgets import Button, Footer, Header, Static
 from typing_extensions import Self, override
 
-from ratio_chartarum.adapters.ui.screens.GameModeScreen import GameModeScreen
 
+class MainMenuScreen(Screen):
+    ROUTE = "main_menu"
 
-class MenuScreen(Screen):
     @override
     def compose(self: Self) -> ComposeResult:
         yield Header()
@@ -31,4 +31,4 @@ class MenuScreen(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "play":
-            self.app.push_screen(GameModeScreen())
+            self.app.push_screen("game-mode")

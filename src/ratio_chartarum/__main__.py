@@ -4,8 +4,8 @@ from ratio_chartarum.adapters.ui.app import RatioChartarum
 
 
 def main() -> None:
-    ratioChartarum: App = RatioChartarum()
-    ratioChartarum.run()
+    ratio_chartarum: App = RatioChartarum()
+    ratio_chartarum.run()
 
 
 if __name__ == "__main__":

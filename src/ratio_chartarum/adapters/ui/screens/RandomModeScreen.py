@@ -5,6 +5,8 @@ from typing_extensions import Self, override
 
 
 class RandomModeScreen(Screen):
+    ROUTE = "random_mode"
+
     @override
     def compose(self: Self) -> ComposeResult:
         yield Static("Deck Aleatorio: 60 cartas generadas al azar")

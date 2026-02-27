@@ -5,7 +5,9 @@ from textual.widgets import Footer, Header, Static
 from typing_extensions import Self, override
 
 
-class BoardScreen(Screen):
+class GameBoardScreen(Screen):
+    ROUTE = "game_board"
+
     @override
     def compose(self: Self) -> ComposeResult:
         yield Header(show_clock=True)

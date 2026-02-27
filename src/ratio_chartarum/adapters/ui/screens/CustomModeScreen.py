@@ -5,6 +5,7 @@ from typing_extensions import Self, override
 
 
 class CustomModeScreen(Screen):
+    ROUTE = "custom_mode"
     @override
     def compose(self: Self) -> ComposeResult:
         yield Static("Configura tu Deck Personalizado:")
