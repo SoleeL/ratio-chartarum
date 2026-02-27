@@ -4,13 +4,19 @@ from textual.app import App
 from textual.binding import Binding
 from typing_extensions import override
 
-from ratio_chartarum.adapters.ui.screens.BoardScreen import GameBoardScreen
-from ratio_chartarum.adapters.ui.screens.ClassicModeScreen import ClassicModeScreen
-from ratio_chartarum.adapters.ui.screens.CustomModeScreen import CustomModeScreen
-from ratio_chartarum.adapters.ui.screens.InfiniteModeScreen import InfiniteModeScreen
-from ratio_chartarum.adapters.ui.screens.MainMenuScreen import MainMenuScreen
-from ratio_chartarum.adapters.ui.screens.ModeSelectionScreen import ModeSelectionScreen
-from ratio_chartarum.adapters.ui.screens.RandomModeScreen import RandomModeScreen
+from ratio_chartarum.adapters.ui.screens.achievements_screen import AchievementsScreen
+from ratio_chartarum.adapters.ui.screens.board_screen import GameBoardScreen
+from ratio_chartarum.adapters.ui.screens.classic_mode_screen import ClassicModeScreen
+from ratio_chartarum.adapters.ui.screens.credits_screen import CreditsScreen
+from ratio_chartarum.adapters.ui.screens.custom_mode_screen import CustomModeScreen
+from ratio_chartarum.adapters.ui.screens.desk_mode_selection_screen import DeskModeSelectionScreen
+from ratio_chartarum.adapters.ui.screens.infinite_mode_screen import InfiniteModeScreen
+from ratio_chartarum.adapters.ui.screens.main_menu_screen import MainMenuScreen
+from ratio_chartarum.adapters.ui.screens.game_mode_selection_screen import GameModeSelectionScreen
+from ratio_chartarum.adapters.ui.screens.profile_selection_screen import ProfileSelectionScreen
+from ratio_chartarum.adapters.ui.screens.random_mode_screen import RandomModeScreen
+from ratio_chartarum.adapters.ui.screens.settings_screen import SettingsScreen
+from ratio_chartarum.adapters.ui.screens.stats_screen import StatsScreen
 
 
 class RatioChartarum(App):
@@ -21,7 +27,14 @@ class RatioChartarum(App):
     SCREENS = {
         MainMenuScreen.ROUTE: MainMenuScreen,
 
-        ModeSelectionScreen.ROUTE: ModeSelectionScreen,
+        GameModeSelectionScreen.ROUTE: GameModeSelectionScreen,
+        DeskModeSelectionScreen.ROUTE: DeskModeSelectionScreen,
+        SettingsScreen.ROUTE: SettingsScreen,
+        CreditsScreen.ROUTE: CreditsScreen,
+
+        ProfileSelectionScreen.ROUTE: ProfileSelectionScreen,
+        AchievementsScreen.ROUTE: AchievementsScreen,
+        StatsScreen.ROUTE: SettingsScreen,
 
         ClassicModeScreen.ROUTE: ClassicModeScreen,
         RandomModeScreen.ROUTE: RandomModeScreen,
