@@ -18,4 +18,4 @@ ratio-chartarum = "ratio_chartarum.__main__:main"
 packages = ["src/ratio_chartarum"]
 
 [project.optional-dependencies]
-dev = ["ruff>=0.3", "mypy>=1.5", "pytest>= 7.0"]
+dev = ["pytest>= 7.0"]
