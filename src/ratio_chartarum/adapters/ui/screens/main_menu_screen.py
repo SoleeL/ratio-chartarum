@@ -59,7 +59,7 @@ class MainMenuScreen(Screen):
 
         yield Footer()
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id in self.NAVIGATION_MAP:
             self.app.push_screen(self.NAVIGATION_MAP[event.button.id])
         elif event.button.id == self.BTN_EXIT_ID:

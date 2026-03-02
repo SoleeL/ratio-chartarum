@@ -2,7 +2,7 @@ from pathlib import Path
 
 from textual.app import App
 from textual.binding import Binding
-from typing_extensions import override
+from typing_extensions import override, Self
 
 from ratio_chartarum.adapters.ui.screens.achievements_screen import AchievementsScreen
 from ratio_chartarum.adapters.ui.screens.board_screen import GameBoardScreen
@@ -10,9 +10,9 @@ from ratio_chartarum.adapters.ui.screens.classic_mode_screen import ClassicModeS
 from ratio_chartarum.adapters.ui.screens.credits_screen import CreditsScreen
 from ratio_chartarum.adapters.ui.screens.custom_mode_screen import CustomModeScreen
 from ratio_chartarum.adapters.ui.screens.desk_mode_selection_screen import DeskModeSelectionScreen
+from ratio_chartarum.adapters.ui.screens.game_mode_selection_screen import GameModeSelectionScreen
 from ratio_chartarum.adapters.ui.screens.infinite_mode_screen import InfiniteModeScreen
 from ratio_chartarum.adapters.ui.screens.main_menu_screen import MainMenuScreen
-from ratio_chartarum.adapters.ui.screens.game_mode_selection_screen import GameModeSelectionScreen
 from ratio_chartarum.adapters.ui.screens.profile_selection_screen import ProfileSelectionScreen
 from ratio_chartarum.adapters.ui.screens.random_mode_screen import RandomModeScreen
 from ratio_chartarum.adapters.ui.screens.settings_screen import SettingsScreen
@@ -44,11 +44,11 @@ class RatioChartarum(App):
         GameBoardScreen.ROUTE: GameBoardScreen,
     }
 
-    def on_mount(self) -> None:
+    def on_mount(self: Self) -> None:
         self.push_screen(MainMenuScreen.ROUTE)
 
     @override
-    def action_toggle_dark(self) -> None:
+    def action_toggle_dark(self: Self) -> None:
         self.theme = (
             "textual-dark" if self.theme == "textual-light" else "textual-light"
         )

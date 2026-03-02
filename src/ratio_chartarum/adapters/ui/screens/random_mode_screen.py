@@ -13,7 +13,7 @@ class RandomModeScreen(Screen):
         yield Button("Comenzar juego", id="start")
         yield Button("Volver", id="back")
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id == "start":
             # Lógica para iniciar juego aleatorio
             pass

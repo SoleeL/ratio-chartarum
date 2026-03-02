@@ -15,7 +15,7 @@ class InfiniteModeScreen(Screen):
         yield Button("Comenzar juego", id="start")
         yield Button("Volver", id="back")
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id == "start":
             # Juego infinito usando self.deck
             pass

@@ -14,7 +14,7 @@ class CustomModeScreen(Screen):
         yield Button("Comenzar juego", id="start")
         yield Button("Volver", id="back")
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id == "start":
             # Aquí recogerías inputs y generarías el deck
             card_count_input = self.query_one("#card-count", Input)

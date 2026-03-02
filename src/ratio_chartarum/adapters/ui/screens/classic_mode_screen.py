@@ -18,7 +18,7 @@ class ClassicModeScreen(Screen):
         yield Button("Nueva partida", id=self.BTN_NEW_ID)
         yield Button("Volver", id=self.BTN_BACK_ID)
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id == self.BTN_CONTINUE_ID:
             # Navegar para seleccionar una partida guardada
             pass

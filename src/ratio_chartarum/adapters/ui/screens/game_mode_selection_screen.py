@@ -19,6 +19,8 @@ class GameModeSelectionScreen(Screen):
 
     BTN_BACK_ID = "back"
 
+    # TODO: Es mejor pasar un parametro del modo de juego, tal que la vista se renderice en base a este, en lugar de
+    #  tener tantas Screens
     NAVIGATION_MAP = {
         BTN_CLASSIC_ID: ClassicModeScreen.ROUTE,
         BTN_RANDOM_ID: RandomModeScreen.ROUTE,
