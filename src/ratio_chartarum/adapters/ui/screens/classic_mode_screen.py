@@ -3,9 +3,10 @@ from textual.screen import Screen
 from textual.widgets import Button, Static
 from typing_extensions import Self, override
 
+from ratio_chartarum.adapters.ui.screens.desk_selection_screen import DeskSelectionScreen
+
 
 class ClassicModeScreen(Screen):
-    ROUTE = "classic_mode"
 
     BTN_CONTINUE_ID = "continue-game"
     BTN_NEW_ID = "new-game"
@@ -23,7 +24,7 @@ class ClassicModeScreen(Screen):
             # Navegar para seleccionar una partida guardada
             pass
         elif event.button.id == self.BTN_NEW_ID:
-            # Navegar para seleccionar una partida guardada
-            pass
+            # Navegar para seleccionar un deck para jugar
+            self.app.push_screen(DeskSelectionScreen())
         elif event.button.id == self.BTN_BACK_ID:
             self.app.pop_screen()

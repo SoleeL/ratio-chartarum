@@ -5,7 +5,6 @@ from typing_extensions import override, Self
 
 
 class AchievementsScreen(Screen):
-    ROUTE = "achievements"
 
     BTN_BACK_ID = "back"
 

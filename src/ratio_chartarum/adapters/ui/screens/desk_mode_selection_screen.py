@@ -5,7 +5,10 @@ from typing_extensions import override, Self
 
 
 class DeskModeSelectionScreen(Screen):
-    ROUTE = "deck_mode_selection"
+
+    # TODO: Aqui se tiene que presentar un listado de los modos de DESK:
+
+    # TODO: Es esto necesario?... Solo el modo Clasico tiene sentido que tenga almacenado Decks
 
     BTN_BACK_ID = "back"
 

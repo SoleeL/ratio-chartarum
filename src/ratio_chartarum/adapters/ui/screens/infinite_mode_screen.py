@@ -7,7 +7,7 @@ from typing_extensions import Self, override
 
 
 class InfiniteModeScreen(Screen):
-    ROUTE = "infinite_mode"
+
     @override
     def compose(self: Self) -> ComposeResult:
         self.deck = itertools.cycle([f"Carta {i}" for i in range(1, 61)])

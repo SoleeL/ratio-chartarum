@@ -14,7 +14,6 @@ from ratio_chartarum.adapters.ui.screens.stats_screen import StatsScreen
 
 
 class MainMenuScreen(Screen):
-    ROUTE = "main_menu"
 
     BTN_PLAY_ID = "play"
     BTN_DECKS_ID = "decks"
@@ -28,14 +27,14 @@ class MainMenuScreen(Screen):
     BTN_EXIT_ID = "exit"
 
     NAVIGATION_MAP = {
-        BTN_PLAY_ID: GameModeSelectionScreen.ROUTE,
-        BTN_DECKS_ID: DeskModeSelectionScreen.ROUTE,
-        BTN_SETTINGS_ID: SettingsScreen.ROUTE,
-        BTN_CREDITS_ID: CreditsScreen.ROUTE,
+        BTN_PLAY_ID: GameModeSelectionScreen,
+        BTN_DECKS_ID: DeskModeSelectionScreen,
+        BTN_SETTINGS_ID: SettingsScreen,
+        BTN_CREDITS_ID: CreditsScreen,
 
-        BTN_PROFILE_ID: ProfileSelectionScreen.ROUTE,
-        BTN_ACHIEVEMENTS_ID: AchievementsScreen.ROUTE,
-        BTN_STATS_ID: StatsScreen.ROUTE,
+        BTN_PROFILE_ID: ProfileSelectionScreen,
+        BTN_ACHIEVEMENTS_ID: AchievementsScreen,
+        BTN_STATS_ID: StatsScreen,
     }
 
     @override
@@ -61,6 +60,6 @@ class MainMenuScreen(Screen):
 
     def on_button_pressed(self: Self, event: Button.Pressed) -> None:
         if event.button.id in self.NAVIGATION_MAP:
-            self.app.push_screen(self.NAVIGATION_MAP[event.button.id])
+            self.app.push_screen(self.NAVIGATION_MAP[event.button.id]())
         elif event.button.id == self.BTN_EXIT_ID:
             self.app.exit()

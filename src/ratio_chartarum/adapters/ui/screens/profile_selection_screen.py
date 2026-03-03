@@ -5,7 +5,6 @@ from typing_extensions import override, Self
 
 
 class ProfileSelectionScreen(Screen):
-    ROUTE = "profile_selection"
 
     BTN_BACK_ID = "back"
 

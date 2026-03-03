@@ -5,7 +5,6 @@ from typing_extensions import override, Self
 
 
 class StatsScreen(Screen):
-    ROUTE = "stats"
 
     BTN_BACK_ID = "back"
 
