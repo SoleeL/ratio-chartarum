@@ -12,6 +12,10 @@ class RatioChartarum(App):
 
     CSS_PATH = Path(__file__).parent / "ratio-chartarum.css"
 
+    def __init__(self, container):
+        super().__init__()
+        self.container = container
+
     def on_mount(self: Self) -> None:
         self.push_screen(MainMenuScreen())
 

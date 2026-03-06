@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from uuid import UUID, uuid4
 
 from textual.app import ComposeResult
 from textual.screen import Screen
@@ -10,7 +11,7 @@ from ratio_chartarum.adapters.ui.screens.game_board_screen import GameBoardScree
 
 @dataclass(slots=True)
 class DeckSummary:
-    id: str
+    id: UUID
     name: str
     wins: int
     losses: int
@@ -23,11 +24,11 @@ class DeckSummary:
 
 def get_mock_decks() -> list[DeckSummary]:
     return [
-        DeckSummary("d11", "Desk 1", 10, 3, "Facción Roja", 12, 5, 3, 8),
-        DeckSummary("d12", "Desk 2", 4, 6, "Facción Azul", 10, 4, 2, 7),
-        DeckSummary("d13", "Desk 3", 15, 2, "Facción Verde", 14, 6, 4, 9),
-        DeckSummary("d14", "Desk 4", 7, 8, "Facción Amarilla", 11, 3, 3, 6),
-        DeckSummary("d15", "Desk 5", 20, 1, "Facción Roja", 16, 8, 5, 10),
+        DeckSummary(uuid4(), "Desk 1", 10, 3, "Facción Roja", 12, 5, 3, 8),
+        DeckSummary(uuid4(), "Desk 2", 4, 6, "Facción Azul", 10, 4, 2, 7),
+        DeckSummary(uuid4(), "Desk 3", 15, 2, "Facción Verde", 14, 6, 4, 9),
+        DeckSummary(uuid4(), "Desk 4", 7, 8, "Facción Amarilla", 11, 3, 3, 6),
+        DeckSummary(uuid4(), "Desk 5", 20, 1, "Facción Roja", 16, 8, 5, 10),
     ]
 
 
@@ -52,13 +53,13 @@ class DeskSelectionScreen(Screen):
         for index, deck in enumerate(self.decks):
             yield Button(
                 self._format_deck_label(deck),
-                id=deck.id,
+                id=f"deck_{deck.id}",
             )
 
         yield Button("Volver", id=self.BTN_BACK_ID)
         yield Footer()
 
-    def _format_deck_label(self: Self, deck: DeckSummary) -> str:
+    def _format_deck_label(self, deck: DeckSummary) -> str:
         return (
             f"{deck.name} | "
             f"{deck.wins}W/{deck.losses}L | "
@@ -73,6 +74,7 @@ class DeskSelectionScreen(Screen):
         if event.button.id == self.BTN_NEW_ID:
             self.app.push_screen("deck_creation")  # TODO: Crear vista
         elif event.button.id.startswith("deck_"):
-            self.app.push_screen(GameBoardScreen(deck_id=self.decks[event.button.id].id))
+            raw_id = event.button.id.removeprefix("deck_")
+            self.app.push_screen(GameBoardScreen(deck_id=UUID(raw_id)))
         elif event.button.id == self.BTN_BACK_ID:
             self.app.pop_screen()

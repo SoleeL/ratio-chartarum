@@ -9,7 +9,10 @@ description = "Juego de cartas en el terminal"
 authors = [{ name = "Carlos Núñez" }]
 readme = "README.md"
 requires-python = ">=3.10.12,<4.0"
-dependencies = ["textual>=0.27"]
+dependencies = [
+    "textual>=0.27",
+     "dependency-injector>=4.0"
+]
 
 [project.scripts]
 ratio-chartarum = "ratio_chartarum.__main__:main"
